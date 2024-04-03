@@ -26,5 +26,7 @@ This project is a comprehensive job portal that utilizes machine learning techni
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/your-username/job-portal.git
+```
+git clone https://github.com/SudhakaranGT/JobBoard.git
+
+```
