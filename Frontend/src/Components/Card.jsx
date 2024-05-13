@@ -4,6 +4,7 @@ import { FiCalendar, FiClock, FiDollarSign, FiMapPin } from "react-icons/fi";
 
 const Card = ({ data }) => {
   const {
+    _id,
     companyName,
     jobTitle,
     companyLogo,
@@ -19,7 +20,7 @@ const Card = ({ data }) => {
 
   return (
     <section className="card bg-gray-100">
-      <div className="flex gap-4 flex-col sm:flex-row items-start">
+      <Link to={`/job/${_id}`} className="flex gap-4 flex-col sm:flex-row items-start">
         <img src={companyLogo} alt="company" className="object-cover object-center w-20 h-20" />
         <div>
           <h4 className="text-primary mb-1">{companyName}</h4>
@@ -41,7 +42,7 @@ const Card = ({ data }) => {
           </div>
           <p className="text-base text-primary/70">{description}</p>
         </div>
-      </div>
+      </Link>
     </section>
   );
 };

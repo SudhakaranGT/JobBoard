@@ -17,8 +17,8 @@ const Navbar = () => {
   const navItems = [
     { path: "/", title: "Home", icon: <FaHome /> },
     { path: "/search-jobs", title: "Search", icon: <FaSearchDollar /> },
-    { path: "/my-jobs", title: "My Jobs", icon: <RiInboxArchiveFill /> },
-    { path: "/post-job", title: "Post a Job", icon: <FaPlus /> },
+    { path: "/my-jobs", title: "Posted Jobs", icon: <RiInboxArchiveFill /> },
+    { path: "/post-a-job", title: "Post a Job", icon: <FaPlus /> },
   ];
 
   return (
@@ -26,7 +26,7 @@ const Navbar = () => {
       <nav className="flex justify-between items-center py-6">
         <Link to="/" className="flex items-center gap-2 text-2xl font-bold">
           <FcBriefcase />
-          <span className="text-blue">JobBoard</span>
+          Work<span className="text-blue">Wave</span>
         </Link>
 
         <ul className="hidden md:flex gap-12">
@@ -52,12 +52,13 @@ const Navbar = () => {
           >
             Log in
           </Link>
+
           <Link
             to="/signup"
             style={{
               boxShadow: "8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff",
             }}
-            className="bg-blue py-2 px-8 text-white md:rounded-s-none rounded hover:bg-blue-700 transition-all duration-200 transform hover:scale-105"
+            className="bg-blue py-2 px-8 text-white md:rounded-s-none rounded hover:bg-blue-700 transition-all duration-200 transform hover:scale-125"
           >
             Sign Up
           </Link>

@@ -6,6 +6,7 @@ import Card from "../Components/Card";
 import { Link } from "react-router-dom";
 import Sidebar from "../sidebar/Sidebar";
 import Newsletter from "../Components/Newsletter";
+import { motion } from "framer-motion";
 
 const SearchJob = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -18,6 +19,7 @@ const SearchJob = () => {
   useEffect(() => {
     setIsLoading(true);
     fetch("jobs.json")
+    //fetch("http://localhost:3000/all-jobs")
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);
@@ -108,6 +110,10 @@ const SearchJob = () => {
     return filteredJobs.map((data, i) => <Card key={i} data={data} />);
   };
 
+  console.log("jobs:", jobs);
+  console.log("selectedCategory:", selectedCategory);
+  console.log("query:", query);
+
   const result = filteredData(jobs, selectedCategory, query);
 
   return (
@@ -115,10 +121,20 @@ const SearchJob = () => {
       <Navbar />
       <Search query={query} handleInputChange={handleInputChange} />
       <div className="bg-[#FAFAFA] md:grid grid-cols-4 gap-8 lg:px-24 px-4 py-12">
-        <div className="bg-white p-4 rounded-sm shadow-lg">
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="bg-white p-4 rounded-sm shadow-lg"
+        >
           <Sidebar handleChange={handleChange} handleClick={handleClick} />
-        </div>
-        <div className="col-span-2 bg-white p-4 rounded-sm shadow-lg">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="col-span-2 bg-white p-4 rounded-sm shadow-lg"
+        >
           {isLoading ? (
             <p className="font-medium">Loading...</p>
           ) : result.length > 0 ? (
@@ -156,10 +172,15 @@ const SearchJob = () => {
           ) : (
             ""
           )}
-        </div>
-        <div className="bg-white p-4 rounded-sm shadow-lg">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="bg-white p-4 rounded-sm shadow-lg"
+        >
           <Newsletter />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

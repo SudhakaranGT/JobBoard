@@ -151,5 +151,21 @@ li {
 }
 
 .create-job-input{
-  @apply block w-full flex-1 bg-white py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6
+  @apply block w-full flex-1 bg-gray-200 py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6
 }
+
+.neumorphic-bg {
+  background-color: #FAFAFA;
+  padding: 2rem;
+  box-shadow: 5px 5px 15px #c7c7c7, 
+             -5px -5px 15px #ffffff;
+}
+
+.neumorphic-input {
+  background-color: #f0f3f5; /* Set a light background color */
+  border: none; /* Remove the border */
+  border-radius: 8px; /* Apply border-radius for rounded corners */
+  padding: 12px; /* Add padding for spacing */
+  box-shadow: 5px 5px 10px #babecc, -5px -5px 10px #ffffff; /* Apply box-shadow for neumorphic effect */
+}
+

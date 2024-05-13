@@ -27,6 +27,7 @@
     "employmentType": "Freelance",
     "description": "Join YouTube India as a Content Creator and showcase your creativity to millions of viewers. As a Content Creator, you will produce engaging videos and build a loyal audience."
   },
+  
   {
     "id": 13,
     "companyName": "Battlegrounds Mobile India",
@@ -70,7 +71,20 @@
     "description": "Google India is seeking a Data Analyst to join our team and help us analyze large datasets to extract valuable insights. As a Data Analyst, you will work on a variety of projects and collaborate with cross-functional teams."
   },
 
-
+  {
+    "id": 12,
+    "companyName": "Amazon",
+    "jobTitle": "AWS Cloud Engineer",
+    "companyLogo": "/images/amazon.png",
+    "minPrice": "60",
+    "maxPrice": "100",
+    "salaryType": "Yearly",
+    "jobLocation": "Chennai",
+    "postingDate": "2023-11-30",
+    "experienceLevel": "Entry-level",
+    "employmentType": "Freelance",
+    "description": "Join Amazon India as a cloud engineer and grind your career"
+  },
     {
       "id": 1,
       "companyName": "Linear company",
@@ -83,7 +97,7 @@
       "postingDate": "2023-11-03",
       "experienceLevel": "Any experience",
       "employmentType": "Full-time",
-      "description": "Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt."
+      "description": "Join Linear Technologies as a Software Engineer and contribute to innovative software solutions. This role offers a great opportunity to work with cutting-edge technologies and grow your career."
     },
     {
       "id": 2,
@@ -97,7 +111,7 @@
       "postingDate": "2023-11-02",
       "experienceLevel": "Internship",
       "employmentType": "Temporary",
-      "description": "Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt."
+      "description": "Notion is looking for a Web Developer to join our dynamic team. As a Web Developer, you will be responsible for developing and maintaining web applications using modern technologies."
     },
     {
       "id": 3,
@@ -111,7 +125,7 @@
       "postingDate": "2023-10-28",
       "experienceLevel": "Any experience",
       "employmentType": "Full-time", 
-      "description": "Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt."
+      "description": "Spline Analytics is seeking a Data Scientist to join our team. As a Data Scientist, you will analyze complex datasets and provide valuable insights to drive business decisions"
     },
     {
       "id": 4,
@@ -125,7 +139,7 @@
       "postingDate": "2023-10-05",
       "experienceLevel": "Work remotely",
       "employmentType": "Part-time",
-      "description": "Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt."
+      "description": "Raycast Technologies is hiring a UI/UX Designer to join our creative team. As a UI/UX Designer, you will be responsible for creating intuitive and visually appealing user interfaces."
     },
     {
       "id": 5,
@@ -139,7 +153,7 @@
       "postingDate": "2023-10-28",
       "experienceLevel": "Intership",
       "employmentType": "Full-time",
-      "description": "Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt."
+      "description": "Loom Technologies is seeking a Frontend Developer to join our team. As a Frontend Developer, you will be responsible for developing and maintaining frontend applications."
     },
     {
       "id": 6,
@@ -153,7 +167,7 @@
       "postingDate": "2023-10-05",
       "experienceLevel": "Intership",
       "employmentType": "Temporary",
-      "description": "Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt."
+      "description": "Trainline Solutions is hiring a DevOps Engineer to join our team. As a DevOps Engineer, you will be responsible for implementing and managing continuous integration and deployment pipelines."
     },
     {
       "id": 1,
@@ -167,7 +181,7 @@
       "postingDate": "2023-11-05",
       "experienceLevel": "Any experience",
       "employmentType": "Full-time",
-      "description": "Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt."
+      "description": "Join Linear Technologies as a Software Engineer and contribute to innovative software solutions. This role offers a great opportunity to work with cutting-edge technologies and grow your career."
     },
     {
       "id": 2,
@@ -181,7 +195,7 @@
       "postingDate": "2023-10-28",
       "experienceLevel": "Internship",
       "employmentType": "Temporary",
-      "description": "Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt."
+      "description": "Notion Web Solutions is looking for a Web Developer to join our dynamic team. As a Web Developer, you will be responsible for developing and maintaining web applications using modern technologies."
     },
     {
       "id": 3,
@@ -195,7 +209,7 @@
       "postingDate": "2023-10-28",
       "experienceLevel": "Any experience",
       "employmentType": "Full-time", 
-      "description": "Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt."
+      "description": "Spline Analytics is seeking a Data Scientist to join our team. As a Data Scientist, you will analyze complex datasets and provide valuable insights to drive business decisions."
     },
     {
       "id": 4,
@@ -209,7 +223,7 @@
       "postingDate": "2023-10-05",
       "experienceLevel": "Work remotely",
       "employmentType": "Part-time",
-      "description": "Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt."
+      "description": "Raycast Technologies is hiring a UI/UX Designer to join our creative team. As a UI/UX Designer, you will be responsible for creating intuitive and visually appealing user interfaces."
     },
     {
       "id": 5,
@@ -223,7 +237,7 @@
       "postingDate": "2023-10-28",
       "experienceLevel": "Intership",
       "employmentType": "Full-time",
-      "description": "Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt."
+      "description": "Loom Technologies is seeking a Frontend Developer to join our team. As a Frontend Developer, you will be responsible for developing and maintaining frontend applications."
     },
     {
       "id": 6,
@@ -237,7 +251,7 @@
       "postingDate": "2022-10-05",
       "experienceLevel": "Intership",
       "employmentType": "Temporary",
-      "description": "Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt."
+      "description": "Loom Technologies is seeking a Frontend Developer to join our team. As a Frontend Developer, you will be responsible for developing and maintaining frontend applications."
     },
   {
     "id": 7,

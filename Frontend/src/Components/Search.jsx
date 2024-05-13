@@ -1,18 +1,34 @@
 import React from "react";
 import { FiMapPin, FiSearch } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 const Search = ({ query, handleInputChange }) => {
   return (
     <div className="bg-gray-100 rounded-lg max-w-screen-2xl container mx-auto xl:px-24 px-4 md:py-20 py-14 h-200 w-9/10">
-      <h1 className="text-5xl font-bold text-primary mb-3">
-        Find your <span className="text-blue">Dream Job </span>Today!
-      </h1>
-      <p className="text-lg text-black/70 mb-8 ">
+      <motion.h1
+        className="text-5xl font-bold text-primary mb-3"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        Find your <span className="text-blue">Dream Job</span> Today!
+      </motion.h1>
+
+      <motion.p
+        className="text-lg text-black/70 mb-8"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         Join Thousands of Successful Professionals Who Found Their Dream Jobs
         Through <span className="text-blue">JobBoard</span>
-      </p>
+      </motion.p>
 
-      <form>
+      <motion.form
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="flex justify-start md:flex-row flex-col md:gap-0 gap-4">
           <div
             style={{
@@ -62,7 +78,7 @@ const Search = ({ query, handleInputChange }) => {
             Search
           </button>
         </div>
-      </form>
+      </motion.form>
     </div>
   );
 };
