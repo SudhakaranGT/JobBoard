@@ -1,0 +1,79 @@
+[
+  {
+    "company": "Citi",
+    "position": "Financial Analyst",
+    "location": "Gurugram, India",
+    "salary": "₹130,000 - ₹160,000",
+    "image": "../images/citi.jpg"
+  },
+  {
+    "company": "Cognizant",
+    "position": "Software Engineer",
+    "location": "Kochi, India",
+    "salary": "₹120,000 - ₹150,000",
+    "image": "../images/cognizant.png"
+  },
+  {
+    "company": "Barclays",
+    "position": "Risk Analyst",
+    "location": "Chandigarh, India",
+    "salary": "₹140,000 - ₹170,000",
+    "image": "../images/barclays.png"
+  },
+  {
+    "company": "TCS",
+    "position": "Software Engineer",
+    "location": "Mumbai, India",
+    "salary": "₹120,000 - ₹150,000",
+    "image": "../images/tcs.png"
+  },
+  {
+    "company": "Amazon",
+    "position": "Data Scientist",
+    "location": "Bangalore, India",
+    "salary": "₹110,000 - ₹140,000",
+    "image": "../images/amazon.png"
+  },
+  {
+    "company": "Twitter",
+    "position": "Product Manager",
+    "location": "Delhi, India",
+    "salary": "₹130,000 - ₹160,000",
+    "image": "../images/twitter.png"
+  },
+  {
+    "company": "Facebook",
+    "position": "UX Designer",
+    "location": "Chennai, India",
+    "salary": "₹100,000 - ₹130,000",
+    "image": "../images/facebook.png"
+  },
+  {
+    "company": "Youtube",
+    "position": "Android Developer",
+    "location": "Hyderabad, India",
+    "salary": "₹120,000 - ₹150,000",
+    "image": "../images/youtube.png"
+  },
+  {
+    "company": "LinkedIn",
+    "position": "Senior Software Engineer",
+    "location": "Pune, India",
+    "salary": "₹140,000 - ₹170,000",
+    "image": "../images/linkedin.png"
+  },
+  {
+    "company": "BGMI",
+    "position": "Game Developer",
+    "location": "Kolkata, India",
+    "salary": "₹100,000 - ₹250,000",
+    "image": "../images/bgmi.png"
+  },
+  {
+    "company": "WhatsApp",
+    "position": "Product Manager",
+    "location": "Ahmedabad, India",
+    "salary": "₹150,000 - ₹180,000",
+    "image": "../images/whatsapp.png"
+  }
+]
