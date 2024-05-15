@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import Navbar from '../Components/Navbar';
 
 const JobDetails = () => {
     const {id} = useParams();
@@ -11,7 +12,8 @@ const JobDetails = () => {
 
   return (
     <div>
-      {id}
+      <Navbar/>
+      <Footer />
     </div>
   )
 }

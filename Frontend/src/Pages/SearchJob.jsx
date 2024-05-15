@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Sidebar from "../sidebar/Sidebar";
 import Newsletter from "../Components/Newsletter";
 import { motion } from "framer-motion";
+import Footer from "../Components/Footer";
 
 const SearchJob = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -19,7 +20,7 @@ const SearchJob = () => {
   useEffect(() => {
     setIsLoading(true);
     fetch("jobs.json")
-    //fetch("http://localhost:3000/all-jobs")
+      //fetch("http://localhost:3000/all-jobs")
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);
@@ -181,7 +182,9 @@ const SearchJob = () => {
         >
           <Newsletter />
         </motion.div>
+        
       </div>
+      <Footer />
     </div>
   );
 };

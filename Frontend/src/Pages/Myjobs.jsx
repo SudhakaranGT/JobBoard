@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import Footer from "../Components/Footer";
 
 const Myjobs = () => {
   const user = "google";
@@ -63,7 +64,9 @@ const Myjobs = () => {
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }} className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
+        transition={{ duration: 0.5 }}
+        className="max-w-screen-2xl container mx-auto xl:px-24 px-4"
+      >
         <div className="my-jobs-container mb-9">
           <h1 className="text-3xl font-bold text-center mb-9">
             Posted <span className="text-blue">Jobs</span>
@@ -173,11 +176,11 @@ const Myjobs = () => {
                         <Link to={"/applicants"}>Applicants</Link>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-blue underline">
-                        <Link to={`/edit-job/${job?._id}`}>Edit</Link>
+                        <Link to={`/edit-job/${job?.id}`}>Edit</Link>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm  underline">
                         <button
-                          onClick={() => handleDelete(job._id)}
+                          onClick={() => handleDelete(job.id)}
                           className="bg-blue py-2 px-6 text-white rounded-sm"
                         >
                           Delete
@@ -216,6 +219,7 @@ const Myjobs = () => {
           </nav>
         </div>
       </motion.div>
+      <Footer />
     </div>
   );
 };

@@ -50,17 +50,17 @@ const Navbar = () => {
             }}
             className=" py-2 px-8 md:rounded-s-none rounded hover:bg-blue-700 transition-all duration-200 transform hover:scale-105"
           >
-            Log in
+            Job Seeker
           </Link>
 
           <Link
-            to="/signup"
+            to="/company-login"
             style={{
               boxShadow: "8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff",
             }}
             className="bg-blue py-2 px-8 text-white md:rounded-s-none rounded hover:bg-blue-700 transition-all duration-200 transform hover:scale-125"
           >
-            Sign Up
+            Recruiter
           </Link>
         </div>
 

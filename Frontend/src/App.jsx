@@ -7,8 +7,11 @@ import About from "./Pages/About";
 import Myjobs from "./Pages/Myjobs";
 import Createjob from "./Pages/Createjob";
 import Updatejob from "./Pages/Updatejob";
-import Login from "./Pages/Login";
 import JobDetails from "./Pages/JobDetails";
+import CompanyLogin from "./Pages/CompanyLogin";
+import CompanySignUp from "./Pages/CompanySignUp";
+import UserLogin from "./Pages/UserLogin";
+import UserSignUp from "./Pages/UserSignUp";
 
 const App = () => {
   return (
@@ -26,7 +29,10 @@ const App = () => {
             fetch(`http://localhost:3000/all-jobs/${params.id}`)
           }
         />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<UserLogin />} />
+        <Route path="/signup" element={<UserSignUp />} />
+        <Route path="/company-login" element={<CompanyLogin />} />
+        <Route path="/company-signup" element={<CompanySignUp />} />
         <Route path="/job/:id" element={<JobDetails />} />
       </Routes>
     </Router>

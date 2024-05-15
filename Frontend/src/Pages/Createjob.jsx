@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 import { useForm } from "react-hook-form";
 import CreatableSelect from "react-select/creatable";
 import { motion } from "framer-motion";
+import Footer from "../Components/Footer";
 
 const Createjob = () => {
   const {
@@ -15,21 +16,21 @@ const Createjob = () => {
   const onSubmit = (data) => {
     data.skills = selected;
     // console.log(data);
-    fetch("http://localhost:3000/post-job", {
+    fetch("jobs.json")
+    /*fetch("http://localhost:3000/post-job", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(data),
-    })
+    })*/
       .then((res) => res.json())
       .then((result) => {
-        console.log(result)
+        console.log(result);
         if (result.acknowledged === true) {
           Swal.fire("Success", "Job Added to the Portal", "success");
         } else {
           Swal.fire("Error", "There is a problem  with the inputs", "error");
-          
         }
         reset();
       });
@@ -284,6 +285,7 @@ const Createjob = () => {
           />
         </form>
       </motion.div>
+      <Footer />
     </div>
   );
 };

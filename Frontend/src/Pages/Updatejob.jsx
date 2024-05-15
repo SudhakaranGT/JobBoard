@@ -4,9 +4,10 @@ import Navbar from "../Components/Navbar";
 import { useForm } from "react-hook-form";
 import CreatableSelect from "react-select/creatable";
 import { motion } from "framer-motion";
+import Footer from "../Components/Footer";
 
 const Updatejob = () => {
-  const { id } = useParams();
+  const {id } = useParams();
   const {
     _id,
     jobTitle,
@@ -34,13 +35,14 @@ const Updatejob = () => {
   const onSubmit = (data) => {
     data.skills = selected;
     // console.log(data);
-    fetch(`http://localhost:3000/update-job/${id}`, {
+    fetch("jobs.json")
+    /*fetch(`http://localhost:3000/update-job/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(data),
-    })
+    })*/
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
@@ -307,6 +309,7 @@ const Updatejob = () => {
           />
         </form>
       </motion.div>
+      <Footer />
     </div>
   );
 };
