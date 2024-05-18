@@ -12,6 +12,7 @@ import CompanyLogin from "./Pages/CompanyLogin";
 import CompanySignUp from "./Pages/CompanySignUp";
 import UserLogin from "./Pages/UserLogin";
 import UserSignUp from "./Pages/UserSignUp";
+import Applicants from "./Pages/Apllicants";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
         <Route path="/company-login" element={<CompanyLogin />} />
         <Route path="/company-signup" element={<CompanySignUp />} />
         <Route path="/job/:id" element={<JobDetails />} />
+        <Route path="/applicants" element={<Applicants />} />
       </Routes>
     </Router>
   );
