@@ -1,5 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import "./App.css";
 import Home from "./Pages/Home";
 import SearchJob from "./Pages/SearchJob";
@@ -12,30 +17,76 @@ import CompanyLogin from "./Pages/CompanyLogin";
 import CompanySignUp from "./Pages/CompanySignUp";
 import UserLogin from "./Pages/UserLogin";
 import UserSignUp from "./Pages/UserSignUp";
-import Applicants from "./Pages/Apllicants";
+import Applicants from "./Pages/Applicants";
+import Userprofile from "./Pages/Userprofile";
+import Navbar from "./Components/Navbar";
+import { jobLoader } from "./Components/jobLoader";
 
 const App = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    try {
+      const loggedInUser = localStorage.getItem("user");
+      if (loggedInUser) {
+        setUser(JSON.parse(loggedInUser));
+      }
+    } catch (error) {
+      console.error("Error parsing user data from localStorage:", error);
+      setUser(null); // or set to a default user object
+    }
+  }, []);
+
+  const handleLogin = (user) => {
+    setUser(user);
+    localStorage.setItem("user", JSON.stringify(user));
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    localStorage.removeItem("user");
+  };
+
   return (
     <Router>
+      <Navbar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/search-jobs" element={<SearchJob />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/my-jobs" element={<Myjobs />} />
-        <Route path="/post-a-job" element={<Createjob />} />
+        <Route path="/profile/:id" element={<Userprofile />} />
+        {user?.type === "seeker" && (
+          <>
+            <Route path="/search-jobs" element={<SearchJob />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/job/:id" element={<JobDetails user={user} />} />
+          </>
+        )}
+        {user?.type === "recruiter" && (
+          <>
+            <Route
+              path="/post-a-job"
+              element={<Createjob email={user.email} />}
+            />
+            <Route path="/my-jobs" element={<Myjobs email={user.email} />} />
+            <Route path="/edit-job/:id" element={<Updatejob />} />
+            <Route path="/applicants/:id" element={<Applicants />} />
+          </>
+        )}
         <Route
-          path="edit-job/:id"
-          element={<Updatejob />}
-          loader={({ params }) =>
-            fetch(`http://localhost:3000/all-jobs/${params.id}`)
-          }
+          path="/login"
+          element={<UserLogin handleLogin={handleLogin} />}
         />
-        <Route path="/login" element={<UserLogin />} />
-        <Route path="/signup" element={<UserSignUp />} />
-        <Route path="/company-login" element={<CompanyLogin />} />
-        <Route path="/company-signup" element={<CompanySignUp />} />
-        <Route path="/job/:id" element={<JobDetails />} />
-        <Route path="/applicants" element={<Applicants />} />
+        <Route
+          path="/signup"
+          element={<UserSignUp handleLogin={handleLogin} />}
+        />
+        <Route
+          path="/company-login"
+          element={<CompanyLogin handleLogin={handleLogin} />}
+        />
+        <Route
+          path="/company-signup"
+          element={<CompanySignUp handleLogin={handleLogin} />}
+        />
       </Routes>
     </Router>
   );

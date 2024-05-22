@@ -4,9 +4,9 @@ import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Footer from "../Components/Footer";
+import Swal from "sweetalert2"; // Assuming you have Swal for notifications
 
-const Myjobs = () => {
-  const user = "google";
+const Myjobs = ({ email }) => {
   const [jobs, setJobs] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -15,35 +15,32 @@ const Myjobs = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("jobs.json")
-      //fetch(`http://localhost:3000/all-jobs/${user}`)
+    fetch(`http://localhost:3000/all-jobs/${email}`)
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);
         setIsLoading(false);
       });
-  }, [searchText]);
+  }, [searchText, email]); // Include email as a dependency if it can change
 
   const handleSearch = () => {
     const filter = jobs.filter(
       (job) =>
         job.jobTitle.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
     );
-
     setJobs(filter);
     setIsLoading(false);
   };
 
   const handleDelete = (id) => {
-    console.log(id);
     fetch(`http://localhost:3000/job/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged === true) {
-          // Corrected typo here
           Swal.fire("Success", "Job deleted Successfully!", "success");
+          setJobs(jobs.filter((job) => job._id !== id));
         }
       });
   };
@@ -60,7 +57,6 @@ const Myjobs = () => {
 
   return (
     <div>
-      <Navbar />
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -150,8 +146,14 @@ const Myjobs = () => {
               <tbody className="bg-white divide-y divide-gray-200">
                 {isLoading ? (
                   <tr>
-                    <td colSpan="7" className="text-center py-4">
+                    <td colSpan="7" className="text-center py-4 text-blue">
                       Loading...
+                    </td>
+                  </tr>
+                ) : currentJobs.length === 0 ? (
+                  <tr>
+                    <td colSpan="7" className="text-center py-4 text-blue">
+                      No jobs posted.......
                     </td>
                   </tr>
                 ) : (
@@ -173,14 +175,14 @@ const Myjobs = () => {
                         {job.minPrice}k - {job.maxPrice}k
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-blue underline">
-                        <Link to={"/applicants"}>Applicants</Link>
+                        <Link to={`/applicants/:${job?._id}`}>Applicants</Link>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-blue underline">
-                        <Link to={`/edit-job/${job?.id}`}>Edit</Link>
+                        <Link to={`/edit-job/${job?._id}`}>Edit</Link>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm  underline">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm underline">
                         <button
-                          onClick={() => handleDelete(job.id)}
+                          onClick={() => handleDelete(job?._id)}
                           className="bg-blue py-2 px-6 text-white rounded-sm"
                         >
                           Delete

@@ -7,21 +7,44 @@ import {
   FaEye,
   FaEyeSlash,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import Image from "../assets/signup.avif";
 import { motion } from "framer-motion";
 
-const CompanySignUp = () => {
+const CompanySignUp = ({handleLogin}) => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data); // Handle form submission here
+    // console.log(data);
+    fetch("http://localhost:3000/post-signup2", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        if (result.acknowledged === true) {
+          Swal.fire("Success", "Login Successfull..!", "success");
+          reset();
+          handleLogin(result.user);
+          navigate("/");
+
+        } else {
+          Swal.fire("Error", "There is a problem  with the inputs", "error");
+        }
+        reset();
+      });
   };
 
   return (

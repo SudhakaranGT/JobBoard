@@ -7,21 +7,46 @@ import {
   FaEye,
   FaEyeSlash,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Image from "../assets/login.png";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
 
-const CompanyLogin = () => {
+const CompanyLogin = ({ handleLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data); // Handle form submission here
+    const query = new URLSearchParams({
+      ...data,
+    }).toString();
+    fetch(`http://localhost:3000/company-login?${query}`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.status) {
+          Swal.fire("Success", "Login Successful!", "success");
+          reset();
+          handleLogin(result.user);
+          navigate("/");
+        } else {
+          Swal.fire("Error", result.message, "error");
+        }
+      })
+      .catch(() => {
+        Swal.fire("Error", "An error occurred. Please try again.", "error");
+      });
   };
 
   return (
@@ -33,7 +58,7 @@ const CompanyLogin = () => {
           transition={{ duration: 0.5 }}
           className="hidden h-screen sm:w-1/2 sm:flex bg-blue p-20"
         >
-          <img src={Image} alt="image" />
+          <img src={Image} alt="Login" />
         </motion.div>
         <motion.div
           initial={{ x: "100%", opacity: 0 }}
@@ -64,9 +89,15 @@ const CompanyLogin = () => {
                 <input
                   type="text"
                   placeholder="Enter your Username or email"
-                  {...register("username", { required: true, maxLength: 80 })}
+                  {...register("email", {
+                    required: "Username or email is required",
+                    maxLength: 80,
+                  })}
                   className="create-job-input bg-gray-300 rounded-lg"
                 />
+                {errors.username && (
+                  <p className="text-red-500">{errors.username.message}</p>
+                )}
               </div>
               <div className="w-full">
                 <label className="block mb-2 text-lg font-semibold">
@@ -76,7 +107,10 @@ const CompanyLogin = () => {
                   <input
                     type={showPassword ? "text" : "password"}
                     placeholder="Enter your password"
-                    {...register("password", { required: true, maxLength: 80 })}
+                    {...register("password", {
+                      required: "Password is required",
+                      maxLength: 80,
+                    })}
                     className="create-job-input bg-gray-300 rounded-lg pr-10"
                   />
                   <span
@@ -86,6 +120,9 @@ const CompanyLogin = () => {
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </span>
                 </div>
+                {errors.password && (
+                  <p className="text-red-500">{errors.password.message}</p>
+                )}
               </div>
               <div className="w-full">
                 <label className="block mb-2 text-lg font-semibold">
@@ -94,9 +131,15 @@ const CompanyLogin = () => {
                 <input
                   type="text"
                   placeholder="Enter your company"
-                  {...register("company", { required: true, maxLength: 80 })}
+                  {...register("company", {
+                    required: "Company name is required",
+                    maxLength: 80,
+                  })}
                   className="create-job-input bg-gray-300 rounded-lg"
                 />
+                {errors.company && (
+                  <p className="text-red-500">{errors.company.message}</p>
+                )}
               </div>
             </div>
             <div className="flex items-center justify-between">

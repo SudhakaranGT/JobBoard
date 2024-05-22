@@ -7,21 +7,45 @@ import {
   FaEye,
   FaEyeSlash,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Image from "../assets/signup.png";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
 
-const UserSignUp = () => {
+const UserSignUp = ({ handleLogin }) => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
+    watch,
   } = useForm();
 
   const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = (data) => {
-    console.log(data); // Handle form submission here
+    fetch("http://localhost:3000/post-signup1", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.acknowledged === true) {
+          Swal.fire("Success", "Signed Up Successfully!", "success");
+          reset();
+          handleLogin(result.user);
+          navigate("/");
+        } else {
+          Swal.fire("Error", "There is a problem with the inputs", "error");
+        }
+      })
+      .catch((error) => {
+        Swal.fire("Error", "An error occurred. Please try again.", "error");
+      });
   };
 
   return (
@@ -53,9 +77,15 @@ const UserSignUp = () => {
                 <input
                   type="text"
                   placeholder="Enter your first name"
-                  {...register("firstName", { required: true, maxLength: 80 })}
+                  {...register("firstName", {
+                    required: "First name is required",
+                    maxLength: 80,
+                  })}
                   className="create-job-input bg-gray-300 rounded-lg"
                 />
+                {errors.firstName && (
+                  <p className="text-red-500">{errors.firstName.message}</p>
+                )}
               </div>
               <div className="w-full relative">
                 <label className="block mb-1 text-lg font-semibold">
@@ -64,9 +94,15 @@ const UserSignUp = () => {
                 <input
                   type="text"
                   placeholder="Enter your last name"
-                  {...register("lastName", { required: true, maxLength: 80 })}
+                  {...register("lastName", {
+                    required: "Last name is required",
+                    maxLength: 80,
+                  })}
                   className="create-job-input bg-gray-300 rounded-lg"
                 />
+                {errors.lastName && (
+                  <p className="text-red-500">{errors.lastName.message}</p>
+                )}
               </div>
               <div className="w-full relative">
                 <label className="block mb-1 text-lg font-semibold">
@@ -75,9 +111,12 @@ const UserSignUp = () => {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  {...register("email", { required: true })}
+                  {...register("email", { required: "Email is required" })}
                   className="create-job-input bg-gray-300 rounded-lg"
                 />
+                {errors.email && (
+                  <p className="text-red-500">{errors.email.message}</p>
+                )}
               </div>
               <div className="w-full relative">
                 <label className="block mb-1 text-lg font-semibold">
@@ -87,7 +126,10 @@ const UserSignUp = () => {
                   <input
                     type={showPassword ? "text" : "password"}
                     placeholder="Enter your password"
-                    {...register("password", { required: true, maxLength: 80 })}
+                    {...register("password", {
+                      required: "Password is required",
+                      minLength: 6,
+                    })}
                     className="create-job-input bg-gray-300 rounded-lg pr-10"
                   />
                   <button
@@ -99,8 +141,10 @@ const UserSignUp = () => {
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </button>
                 </div>
+                {errors.password && (
+                  <p className="text-red-500">{errors.password.message}</p>
+                )}
               </div>
-
               <div className="w-full">
                 <label className="block mb-1 text-lg font-semibold">
                   Confirm Password
@@ -109,11 +153,17 @@ const UserSignUp = () => {
                   type="password"
                   placeholder="Confirm your password"
                   {...register("confirmPassword", {
-                    required: true,
-                    maxLength: 80,
+                    required: "Confirm Password is required",
+                    validate: (value) =>
+                      value === watch("password") || "Passwords do not match",
                   })}
                   className="create-job-input bg-gray-300 rounded-lg"
                 />
+                {errors.confirmPassword && (
+                  <p className="text-red-500">
+                    {errors.confirmPassword.message}
+                  </p>
+                )}
               </div>
             </div>
             <input
@@ -152,7 +202,7 @@ const UserSignUp = () => {
           transition={{ duration: 0.5 }}
           className="hidden h-screen sm:w-1/2 sm:flex bg-blue p-20"
         >
-          <img src={Image} alt="image" />
+          <img src={Image} alt="Signup illustration" />
         </motion.div>
       </div>
     </div>

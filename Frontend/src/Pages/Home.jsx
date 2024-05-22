@@ -9,11 +9,10 @@ import NsHome from "../Components/NsHome";
 const Home = () => {
   return (
     <div>
-      <Navbar />
       <Hero />
-      <Comp/>
-      <NsHome/>
-      <Slider/>
+      <Comp />
+      <NsHome />
+      <Slider />
       <Footer />
     </div>
   );

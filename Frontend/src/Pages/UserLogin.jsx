@@ -7,12 +7,14 @@ import {
   FaEye,
   FaEyeSlash,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import Image from "../assets//login.png";
+import { Link, useNavigate } from "react-router-dom";
+import Image from "../assets/login.png";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
 
-const UserLogin = () => {
+const UserLogin = ({ handleLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -21,7 +23,24 @@ const UserLogin = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data); // Handle form submission here
+    const query = new URLSearchParams({ ...data }).toString();
+    console.log(query);
+    fetch(`http://localhost:3000/user-login?${query}`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.status) {
+          Swal.fire("Success", "Login Successful!", "success");
+          handleLogin(result.user); // Call handleLogin with user data
+          navigate("/");
+        } else {
+          Swal.fire("Error", result.message, "error");
+        }
+      })
+      .catch(() => {
+        Swal.fire("Error", "An error occurred. Please try again.", "error");
+      });
   };
 
   return (
@@ -31,7 +50,6 @@ const UserLogin = () => {
           initial={{ x: "-100%", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
-          div
           className="hidden h-screen sm:w-1/2 sm:flex bg-blue p-20 justify-center items-center"
         >
           <img src={Image} alt="image" className="h-3/4 w-3/4" />
@@ -62,7 +80,7 @@ const UserLogin = () => {
                 <input
                   type="text"
                   placeholder="Enter your Username or email"
-                  {...register("username", { required: true, maxLength: 80 })}
+                  {...register("email", { required: true, maxLength: 80 })}
                   className="create-job-input bg-gray-300 rounded-lg"
                 />
               </div>

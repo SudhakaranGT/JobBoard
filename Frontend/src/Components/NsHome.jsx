@@ -21,7 +21,7 @@ const NsHome = () => {
   }, [visibleIndex]);
 
   return (
-    <section className="bg-white">
+    <section className="bg-white ">
       <div className="p-8 lg:px-20 lg:py-20">
         <div className="flex flex-col items-start mb-10">
           <span className="text-blue text-2xl font-bold">
@@ -40,7 +40,6 @@ const NsHome = () => {
         </div>
       </div>
 
-      {/* Add spacing below the newsletters section */}
       <div className="h-80"></div>
     </section>
   );

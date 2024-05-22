@@ -1,24 +1,17 @@
-[
-  {
-    "company": "Citi",
-    "position": "Financial Analyst",
-    "location": "Gurugram, India",
-    "salary": "₹130,000 - ₹160,000",
-    "image": "../images/citi.jpg"
-  },
+[ {
+  "company": "Microsoft",
+  "position": "Software Engineer",
+  "location": "Kochi, India",
+  "salary": "₹120,000 - ₹150,000",
+  "image": "../images/microsoft.webp"
+},
+  
   {
     "company": "Cognizant",
     "position": "Software Engineer",
     "location": "Kochi, India",
     "salary": "₹120,000 - ₹150,000",
     "image": "../images/cognizant.png"
-  },
-  {
-    "company": "Barclays",
-    "position": "Risk Analyst",
-    "location": "Chandigarh, India",
-    "salary": "₹140,000 - ₹170,000",
-    "image": "../images/barclays.png"
   },
   {
     "company": "TCS",

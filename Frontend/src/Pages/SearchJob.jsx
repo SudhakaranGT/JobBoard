@@ -19,8 +19,8 @@ const SearchJob = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("jobs.json")
-      //fetch("http://localhost:3000/all-jobs")
+    //fetch("jobs.json")
+    fetch("http://localhost:3000/all-jobs")
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);
@@ -119,7 +119,6 @@ const SearchJob = () => {
 
   return (
     <div>
-      <Navbar />
       <Search query={query} handleInputChange={handleInputChange} />
       <div className="bg-[#FAFAFA] md:grid grid-cols-4 gap-8 lg:px-24 px-4 py-12">
         <motion.div

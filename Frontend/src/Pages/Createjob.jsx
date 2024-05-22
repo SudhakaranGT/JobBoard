@@ -5,7 +5,7 @@ import CreatableSelect from "react-select/creatable";
 import { motion } from "framer-motion";
 import Footer from "../Components/Footer";
 
-const Createjob = () => {
+const Createjob = ({ email }) => {
   const {
     register,
     handleSubmit,
@@ -16,14 +16,14 @@ const Createjob = () => {
   const onSubmit = (data) => {
     data.skills = selected;
     // console.log(data);
-    fetch("jobs.json")
-    /*fetch("http://localhost:3000/post-job", {
+    //fetch("jobs.json")
+    fetch("http://localhost:3000/post-job", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(data),
-    })*/
+    })
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
@@ -116,7 +116,6 @@ const Createjob = () => {
 
   return (
     <div>
-      <Navbar />
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -235,14 +234,14 @@ const Createjob = () => {
             <div className="lg:w-1/2 w-full">
               <label className="block mb-2 text-lg">Company Logo</label>
               <input
-                type="url"
+                type="text"
                 placeholder="Enter the logo url"
                 {...register("companyLogo")}
                 className="create-job-input"
               />
             </div>
             <div className="lg:w-1/2 w-full">
-              <label className="block mb-2 text-lg">Experience Level</label>
+              <label className="block mb-2 text-lg">Employement Type</label>
               <select
                 {...register("employmentType", { required: true })}
                 className="create-job-input"
@@ -260,11 +259,21 @@ const Createjob = () => {
             <textarea
               {...register("description", { required: true })}
               className="w-full pl-3 py-1.5 focus:outline-none placeholder:text-gray-700 bg-gray-200"
-              row={10}
+              row={30}
               defaultValue={
                 "Seeking passionate individuals to join our innovative team and grind their career in TEch Industry."
               }
               placeholder="Enter the job Description here"
+            />
+          </div>
+
+          <div className="w-full">
+            <label className="block mb-2 text-lg">About Company</label>
+            <textarea
+              {...register("aboutCompany", { required: true })}
+              className="w-full pl-3 py-1.5 focus:outline-none placeholder:text-gray-400 bg-gray-200"
+              row={30}
+              placeholder="Tell about You Something"
             />
           </div>
 
@@ -274,6 +283,7 @@ const Createjob = () => {
               type="text"
               placeholder="Enter Email:Ex.google.com"
               {...register("postedBy")}
+              defaultValue={email}
               className="create-job-input"
             />
           </div>
