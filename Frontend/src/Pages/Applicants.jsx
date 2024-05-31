@@ -15,6 +15,7 @@ const Applicants = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [jobsPerPage] = useState(10);
+  const [originalApplicants, setOriginalApplicants] = useState([]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -24,14 +25,15 @@ const Applicants = () => {
       .then((res) => res.json())
       .then((data) => {
         setApplicants(data);
+        setOriginalApplicants(data);
         setIsLoading(false);
       });
   }, [sanitizedId]);
 
   const handleSearch = () => {
-    const filter = applicants.filter(
+    const filter = originalApplicants.filter(
       (applicant) =>
-        applicant.preferred_job
+        applicant.preferredJob
           .toLowerCase()
           .indexOf(searchText.toLowerCase()) !== -1
     );
@@ -155,7 +157,7 @@ const Applicants = () => {
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Rank
+                      Score
                     </th>
                     <th
                       scope="col"

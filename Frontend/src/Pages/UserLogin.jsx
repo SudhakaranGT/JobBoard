@@ -145,7 +145,7 @@ const UserLogin = ({ handleLogin }) => {
           </div>
           <div className="flex gap-1 flex-row flex-start mt-5 justify-center items-center">
             <h1 className="text-lg font-bold">New to the Workwave</h1>
-            <Link to={"/signup"} className="text-blue underline" href="">
+            <Link to={"/user-signup"} className="text-blue underline" href="">
               Signup
             </Link>
           </div>

@@ -261,7 +261,7 @@ const Createjob = ({ email }) => {
               className="w-full pl-3 py-1.5 focus:outline-none placeholder:text-gray-700 bg-gray-200"
               row={30}
               defaultValue={
-                "Seeking passionate individuals to join our innovative team and grind their career in TEch Industry."
+                "Seeking passionate individuals to join our innovative team and grind their career in Tech Industry."
               }
               placeholder="Enter the job Description here"
             />

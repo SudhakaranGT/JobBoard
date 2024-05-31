@@ -41,7 +41,7 @@ const Navbar = ({ user, handleLogout }) => {
   return (
     <header className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
       <nav className="flex justify-between items-center py-6">
-        <Link to="/" className="flex items-center gap-2 text-2xl font-bold">
+        <Link to="/" className="flex items-center gap-1 text-2xl font-bold">
           <FcBriefcase />
           Work<span className="text-blue">Wave</span>
         </Link>
@@ -84,7 +84,7 @@ const Navbar = ({ user, handleLogout }) => {
           ) : (
             <>
               <Link
-                to="/login"
+                to="/user-login"
                 className="py-2 px-8 md:rounded-s-none rounded hover:bg-blue-700 transition-all duration-200 transform hover:scale-105"
                 style={{
                   boxShadow: "8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff",

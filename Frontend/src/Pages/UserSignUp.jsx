@@ -34,11 +34,11 @@ const UserSignUp = ({ handleLogin }) => {
     })
       .then((res) => res.json())
       .then((result) => {
+        console.log(res);
         if (result.acknowledged === true) {
           Swal.fire("Success", "Signed Up Successfully!", "success");
           reset();
-          handleLogin(result.user);
-          navigate("/");
+          navigate("/user-login");
         } else {
           Swal.fire("Error", "There is a problem with the inputs", "error");
         }

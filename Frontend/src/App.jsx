@@ -20,7 +20,8 @@ import UserSignUp from "./Pages/UserSignUp";
 import Applicants from "./Pages/Applicants";
 import Userprofile from "./Pages/Userprofile";
 import Navbar from "./Components/Navbar";
-import { jobLoader } from "./Components/jobLoader";
+import Footer from "./Components/Footer";
+import Swal from "sweetalert2"; 
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -28,12 +29,13 @@ const App = () => {
   useEffect(() => {
     try {
       const loggedInUser = localStorage.getItem("user");
-      if (loggedInUser) {
+      if (loggedInUser !== undefined && loggedInUser !== null) {
         setUser(JSON.parse(loggedInUser));
       }
     } catch (error) {
+      
       console.error("Error parsing user data from localStorage:", error);
-      setUser(null); // or set to a default user object
+      setUser(null);
     }
   }, []);
 
@@ -43,8 +45,25 @@ const App = () => {
   };
 
   const handleLogout = () => {
-    setUser(null);
-    localStorage.removeItem("user");
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you really want to log out?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, log out!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setUser(null);
+        localStorage.removeItem("user");
+        Swal.fire(
+          "Logged out!",
+          "You have been logged out successfully.",
+          "success"
+        );
+      }
+    });
   };
 
   return (
@@ -52,7 +71,7 @@ const App = () => {
       <Navbar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/profile/:id" element={<Userprofile />} />
+        <Route path="/profile" element={<Userprofile user={user} />} />
         {user?.type === "seeker" && (
           <>
             <Route path="/search-jobs" element={<SearchJob />} />
@@ -72,11 +91,11 @@ const App = () => {
           </>
         )}
         <Route
-          path="/login"
+          path="/user-login"
           element={<UserLogin handleLogin={handleLogin} />}
         />
         <Route
-          path="/signup"
+          path="/user-signup"
           element={<UserSignUp handleLogin={handleLogin} />}
         />
         <Route

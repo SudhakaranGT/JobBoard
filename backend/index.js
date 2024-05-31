@@ -4,6 +4,9 @@ const { MongoClient, ObjectId } = require('mongodb');
 const multer = require('multer');
 const path = require('path');
 require('dotenv').config();
+const fs = require('fs');
+const axios = require('axios');
+const FormData = require('form-data');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -40,45 +43,91 @@ async function connectToMongoDB() {
     
     const upload = multer({ storage: storage });
 
+    // app.post('/upload-resume1', upload.single('resume'), async (req, res) => {
+    //   // Extract data from request
+    //   const { username, email, jobId } = req.body;
+    //   const resume = req.file.path; 
+    
+      
+    //   const preferredJobs = [
+    //     'Data Science', 'Web Designing',
+    //     'Python Developer',
+    //      'Database',
+    //      'Testing','Web Developer',
+    //   ];
+    
+    //   // Select a random preferred job
+    //   const preferredJob = preferredJobs[Math.floor(Math.random() * preferredJobs.length)];
+    
+    //   // Generate a random rank between 80 and 100
+    //   const rank = Math.floor(Math.random() * 21) + 80;
+       
+    //   try {
+    //     // Create a new applicant object
+    //     const newApplicant = {
+    //       username,
+    //       email,
+    //       preferredJob,
+    //       rank,
+    //       resume,
+    //       jobId: new ObjectId(jobId),
+    //       appliedAt: new Date()
+    //     };
+    
+    //     // Insert the applicant into the database
+    //     const result = await allApplicants.insertOne(newApplicant);
+    
+    //     if (result.insertedId) {
+    //       res.status(200).json({ message: 'Resume uploaded and application saved', status: true });
+    //     } else {
+    //       res.status(500).json({ message: "Failed to save application, try again later", status: false });
+    //     }
+    //   } catch (error) {
+    //     console.error('Error saving application:', error);
+    //     res.status(500).json({ message: 'Server error', error });
+    //   }
+    // });
+
     app.post('/upload-resume', upload.single('resume'), async (req, res) => {
       const { username, email, jobId } = req.body;
       const resumePath = req.file.path;
-
+    
       try {
         const formData = new FormData();
         formData.append('resume', fs.createReadStream(resumePath));
-
+    
         const response = await axios.post('http://localhost:5000/predict-job', formData, {
-          headers: { 'Content-Type': 'multipart/form-data' }
+          headers: {
+            ...formData.getHeaders()
+          }
         });
-
+    
         const { predicted_category_1, predicted_category_2 } = response.data;
-
         const preferredJob = `${predicted_category_1}, ${predicted_category_2}`;
-
+    
         const newApplicant = {
           username,
           email,
           preferredJob,
-          rank: 1,
+          rank: Math.floor(Math.random() * 21) + 80, // Generate a random rank between 80 and 100
           resume: resumePath,
           jobId: new ObjectId(jobId),
           appliedAt: new Date()
         };
-
+    
         const result = await allApplicants.insertOne(newApplicant);
-
+    
         if (result.insertedId) {
-          res.status(200).json({ message: 'Resume uploaded and application saved', status: true });
+          res.status(200).json({ message: 'Resume uploaded, job predicted and application saved', status: true });
         } else {
           res.status(500).json({ message: "Failed to save application, try again later", status: false });
         }
       } catch (error) {
         console.error('Error predicting job category:', error);
-        res.status(500).json({ message: 'Server error', error });
+        res.status(500).json({ success: false, error: error.message });
       }
     });
-
+    
 
     app.get("/all-jobs", async (req, res) => {
       const jobs = await allJobs.find({}).toArray()

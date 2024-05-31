@@ -1,4 +1,4 @@
-[   
+[
   {
     "id": 11,
     "companyName": "LinkedIn",
@@ -11,7 +11,8 @@
     "postingDate": "2023-12-05",
     "experienceLevel": "Senior",
     "employmentType": "Full-time",
-    "description": "LinkedIn India is seeking a Senior Software Engineer to join our team and work on building scalable and reliable systems. As a Senior Software Engineer, you will have the opportunity to work on cutting-edge technologies and collaborate with cross-functional teams."
+    "description": "LinkedIn India is seeking a Senior Software Engineer to join our team and work on building scalable and reliable systems. As a Senior Software Engineer, you will have the opportunity to work on cutting-edge technologies and collaborate with cross-functional teams.",
+    "aboutCompany": "LinkedIn, the world’s largest professional network, is dedicated to connecting the global workforce. With over 700 million members, LinkedIn helps individuals and businesses achieve more through powerful networking, job opportunities, and career development tools. The company's culture is built on the values of collaboration, innovation, and a commitment to making a positive impact on the professional lives of its members. Joining LinkedIn means being part of a dynamic team that drives change and empowers professionals worldwide."
   },
   {
     "id": 12,
@@ -25,9 +26,9 @@
     "postingDate": "2023-11-30",
     "experienceLevel": "Entry-level",
     "employmentType": "Freelance",
-    "description": "Join YouTube India as a Content Creator and showcase your creativity to millions of viewers. As a Content Creator, you will produce engaging videos and build a loyal audience."
+    "description": "Join YouTube India as a Content Creator and showcase your creativity to millions of viewers. As a Content Creator, you will produce engaging videos and build a loyal audience.",
+    "aboutCompany": "YouTube is a global video-sharing platform that empowers people to create and share content with a vast audience. With billions of users and a diverse array of content, YouTube offers a unique space for creators to showcase their talents, reach new audiences, and build careers. The company fosters a creative and inclusive environment, encouraging innovation and collaboration. As part of YouTube, you'll have the opportunity to influence culture and entertainment while working with cutting-edge technology and passionate professionals."
   },
-  
   {
     "id": 13,
     "companyName": "Battlegrounds Mobile India",
@@ -40,7 +41,8 @@
     "postingDate": "2023-11-25",
     "experienceLevel": "Mid-level",
     "employmentType": "Full-time",
-    "description": "Battlegrounds Mobile India is hiring a Game Developer to join our team and work on developing exciting new features for our popular mobile game. As a Game Developer, you will have the opportunity to work on a high-profile project and make a significant impact."
+    "description": "Battlegrounds Mobile India is hiring a Game Developer to join our team and work on developing exciting new features for our popular mobile game. As a Game Developer, you will have the opportunity to work on a high-profile project and make a significant impact.",
+    "aboutCompany": "Battlegrounds Mobile India (BGMI) is a popular mobile game that has captured the interest of millions of gamers in India. Developed by Krafton, BGMI offers a thrilling battle royale experience tailored for the Indian market. The company is committed to delivering high-quality gaming experiences and continuously innovates to enhance gameplay and user engagement. Working at BGMI means being part of a passionate team dedicated to pushing the boundaries of mobile gaming and creating unforgettable experiences for players."
   },
   {
     "id": 14,
@@ -54,7 +56,8 @@
     "postingDate": "2023-11-20",
     "experienceLevel": "Mid-level",
     "employmentType": "Full-time",
-    "description": "Instagram India is looking for a Social Media Manager to manage our social media presence and engage with our community. As a Social Media Manager, you will develop and implement social media strategies to grow our brand."
+    "description": "Instagram India is looking for a Social Media Manager to manage our social media presence and engage with our community. As a Social Media Manager, you will develop and implement social media strategies to grow our brand.",
+    "aboutCompany": "Instagram is a leading social media platform that enables people to capture, share, and discover moments from their lives through photos and videos. With over a billion users worldwide, Instagram fosters creativity and community, providing a powerful platform for individuals and businesses to connect and express themselves. The company's work culture is dynamic, innovative, and inclusive, emphasizing creativity and community engagement. As part of Instagram, you'll work with a talented team to shape the future of social media and influence global trends."
   },
   {
     "id": 15,
@@ -68,11 +71,11 @@
     "postingDate": "2023-11-15",
     "experienceLevel": "Entry-level",
     "employmentType": "Full-time",
-    "description": "Google India is seeking a Data Analyst to join our team and help us analyze large datasets to extract valuable insights. As a Data Analyst, you will work on a variety of projects and collaborate with cross-functional teams."
+    "description": "Google India is seeking a Data Analyst to join our team and help us analyze large datasets to extract valuable insights. As a Data Analyst, you will work on a variety of projects and collaborate with cross-functional teams.",
+    "aboutCompany": "Google is a global technology leader known for its innovative products and services that improve the lives of billions of users worldwide. The company’s mission is to organize the world’s information and make it universally accessible and useful. Google fosters a culture of collaboration, innovation, and inclusivity, providing employees with opportunities to work on groundbreaking projects. As part of Google, you'll be part of a diverse and dynamic team committed to solving complex problems and pushing the boundaries of technology."
   },
-
   {
-    "id": 12,
+    "id": 16,
     "companyName": "Amazon",
     "jobTitle": "AWS Cloud Engineer",
     "companyLogo": "/images/amazon.png",
@@ -83,178 +86,101 @@
     "postingDate": "2023-11-30",
     "experienceLevel": "Entry-level",
     "employmentType": "Freelance",
-    "description": "Join Amazon India as a cloud engineer and grind your career"
+    "description": "Join Amazon India as a cloud engineer and grind your career",
+    "aboutCompany": "Amazon is a global e-commerce and technology powerhouse, revolutionizing how people shop and access digital services. As one of the most valuable brands in the world, Amazon provides a vast array of products and services, including AWS, which offers reliable and scalable cloud computing solutions. The company's culture emphasizes customer obsession, innovation, and operational excellence. Working at Amazon means being part of a fast-paced, dynamic environment where you can contribute to transformative projects and grow your career in various domains."
   },
-    {
-      "id": 1,
-      "companyName": "Linear company",
-      "jobTitle": "Software Engineer",
-      "companyLogo": "/images/Linear.png",
-      "minPrice": "20",
-      "maxPrice": "30",
-      "salaryType": "Yearly",
-      "jobLocation": "Bengaluru",
-      "postingDate": "2023-11-03",
-      "experienceLevel": "Any experience",
-      "employmentType": "Full-time",
-      "description": "Join Linear Technologies as a Software Engineer and contribute to innovative software solutions. This role offers a great opportunity to work with cutting-edge technologies and grow your career."
-    },
-    {
-      "id": 2,
-      "companyName": "Notion",
-      "jobTitle": "Web Developer",
-      "companyLogo": "/images/Notion.png",
-      "minPrice": "40",
-      "maxPrice": "50",
-      "salaryType": "Yearly",
-      "jobLocation": "Bengaluru",
-      "postingDate": "2023-11-02",
-      "experienceLevel": "Internship",
-      "employmentType": "Temporary",
-      "description": "Notion is looking for a Web Developer to join our dynamic team. As a Web Developer, you will be responsible for developing and maintaining web applications using modern technologies."
-    },
-    {
-      "id": 3,
-      "companyName": "Spline studio",
-      "jobTitle": "Data Scientist",
-      "companyLogo": "/images/Spline.png",
-      "minPrice": "40",
-      "maxPrice": "50",
-      "salaryType": "Yearly",
-      "jobLocation": "Bengaluru",
-      "postingDate": "2023-10-28",
-      "experienceLevel": "Any experience",
-      "employmentType": "Full-time", 
-      "description": "Spline Analytics is seeking a Data Scientist to join our team. As a Data Scientist, you will analyze complex datasets and provide valuable insights to drive business decisions"
-    },
-    {
-      "id": 4,
-      "companyName": "Raycast corp",
-      "jobTitle": "UI/UX Designer",
-      "companyLogo": "/images/Raycast.png",
-      "minPrice": "40",
-      "maxPrice": "50",
-      "salaryType": "Monthly",
-      "jobLocation": "Mumbai",
-      "postingDate": "2023-10-05",
-      "experienceLevel": "Work remotely",
-      "employmentType": "Part-time",
-      "description": "Raycast Technologies is hiring a UI/UX Designer to join our creative team. As a UI/UX Designer, you will be responsible for creating intuitive and visually appealing user interfaces."
-    },
-    {
-      "id": 5,
-      "companyName": "Loom",
-      "jobTitle": "Frontend Developer",
-      "companyLogo": "/images/Loom.png",
-      "minPrice": "50",
-      "maxPrice": "75",
-      "salaryType": "Yearly",
-      "jobLocation": "Mumbai",
-      "postingDate": "2023-10-28",
-      "experienceLevel": "Intership",
-      "employmentType": "Full-time",
-      "description": "Loom Technologies is seeking a Frontend Developer to join our team. As a Frontend Developer, you will be responsible for developing and maintaining frontend applications."
-    },
-    {
-      "id": 6,
-      "companyName": "Trainline group",
-      "jobTitle": "DevOps Engineer",
-      "companyLogo": "/images/Trainline.png",
-      "minPrice": "80",
-      "maxPrice": "120",
-      "salaryType": "Yearly",
-      "jobLocation": "Mumbai",
-      "postingDate": "2023-10-05",
-      "experienceLevel": "Intership",
-      "employmentType": "Temporary",
-      "description": "Trainline Solutions is hiring a DevOps Engineer to join our team. As a DevOps Engineer, you will be responsible for implementing and managing continuous integration and deployment pipelines."
-    },
-    {
-      "id": 1,
-      "companyName": "Linear company",
-      "jobTitle": "Software Engineer",
-      "companyLogo": "/images/Linear.png",
-      "minPrice": "30",
-      "maxPrice": "80",
-      "salaryType": "Yearly",
-      "jobLocation": "Mumbai",
-      "postingDate": "2023-11-05",
-      "experienceLevel": "Any experience",
-      "employmentType": "Full-time",
-      "description": "Join Linear Technologies as a Software Engineer and contribute to innovative software solutions. This role offers a great opportunity to work with cutting-edge technologies and grow your career."
-    },
-    {
-      "id": 2,
-      "companyName": "Notion",
-      "jobTitle": "Web Developer",
-      "companyLogo": "/images/Notion.png",
-      "minPrice": "40",
-      "maxPrice": "50",
-      "salaryType": "Yearly",
-      "jobLocation": "Pune",
-      "postingDate": "2023-10-28",
-      "experienceLevel": "Internship",
-      "employmentType": "Temporary",
-      "description": "Notion Web Solutions is looking for a Web Developer to join our dynamic team. As a Web Developer, you will be responsible for developing and maintaining web applications using modern technologies."
-    },
-    {
-      "id": 3,
-      "companyName": "Spline studio",
-      "jobTitle": "Data Scientist",
-      "companyLogo": "/images/Spline.png",
-      "minPrice": "40",
-      "maxPrice": "50",
-      "salaryType": "Yearly",
-      "jobLocation": "Delhi",
-      "postingDate": "2023-10-28",
-      "experienceLevel": "Any experience",
-      "employmentType": "Full-time", 
-      "description": "Spline Analytics is seeking a Data Scientist to join our team. As a Data Scientist, you will analyze complex datasets and provide valuable insights to drive business decisions."
-    },
-    {
-      "id": 4,
-      "companyName": "Raycast corp",
-      "jobTitle": "UI/UX Designer",
-      "companyLogo": "/images/Raycast.png",
-      "minPrice": "40",
-      "maxPrice": "50",
-      "salaryType": "Monthly",
-      "jobLocation": "Pune",
-      "postingDate": "2023-10-05",
-      "experienceLevel": "Work remotely",
-      "employmentType": "Part-time",
-      "description": "Raycast Technologies is hiring a UI/UX Designer to join our creative team. As a UI/UX Designer, you will be responsible for creating intuitive and visually appealing user interfaces."
-    },
-    {
-      "id": 5,
-      "companyName": "Loom",
-      "jobTitle": "Frontend Developer",
-      "companyLogo": "/images/Loom.png",
-      "minPrice": "50",
-      "maxPrice": "75",
-      "salaryType": "Yearly",
-      "jobLocation": "Delhi",
-      "postingDate": "2023-10-28",
-      "experienceLevel": "Intership",
-      "employmentType": "Full-time",
-      "description": "Loom Technologies is seeking a Frontend Developer to join our team. As a Frontend Developer, you will be responsible for developing and maintaining frontend applications."
-    },
-    {
-      "id": 6,
-      "companyName": "Trainline group",
-      "jobTitle": "DevOps Engineer",
-      "companyLogo": "/images/Trainline.png",
-      "minPrice": "80",
-      "maxPrice": "120",
-      "salaryType": "Yearly",
-      "jobLocation": "Hyderabad",
-      "postingDate": "2022-10-05",
-      "experienceLevel": "Intership",
-      "employmentType": "Temporary",
-      "description": "Loom Technologies is seeking a Frontend Developer to join our team. As a Frontend Developer, you will be responsible for developing and maintaining frontend applications."
-    },
   {
-    "id": 7,
+    "id": 17,
+    "companyName": "Linear company",
+    "jobTitle": "Software Engineer",
+    "companyLogo": "/images/Linear.png",
+    "minPrice": "20",
+    "maxPrice": "30",
+    "salaryType": "Yearly",
+    "jobLocation": "Bengaluru",
+    "postingDate": "2023-11-03",
+    "experienceLevel": "Any experience",
+    "employmentType": "Full-time",
+    "description": "Join Linear Technologies as a Software Engineer and contribute to innovative software solutions. This role offers a great opportunity to work with cutting-edge technologies and grow your career.",
+    "aboutCompany": "Linear Technologies is an innovative technology company dedicated to developing cutting-edge software solutions. With a focus on excellence and continuous improvement, Linear Technologies provides an environment that fosters creativity, collaboration, and professional growth. The company values its employees' contributions and offers opportunities to work on exciting projects that make a significant impact in the tech industry. Joining Linear Technologies means being part of a dynamic team that is committed to pushing the boundaries of technology."
+  },
+  {
+    "id": 18,
+    "companyName": "Notion",
+    "jobTitle": "Web Developer",
+    "companyLogo": "/images/Notion.png",
+    "minPrice": "40",
+    "maxPrice": "50",
+    "salaryType": "Yearly",
+    "jobLocation": "Bengaluru",
+    "postingDate": "2023-11-02",
+    "experienceLevel": "Internship",
+    "employmentType": "Temporary",
+    "description": "Notion is looking for a Web Developer to join our dynamic team. As a Web Developer, you will be responsible for developing and maintaining web applications using modern technologies.",
+    "aboutCompany": "Notion is a fast-growing productivity software company that offers an all-in-one workspace for notes, tasks, databases, and more. Known for its versatility and user-friendly interface, Notion helps individuals and teams organize their work and collaborate effectively. The company's culture is centered on innovation, user empowerment, and continuous improvement. Working at Notion means being part of a dedicated team that values creativity and aims to redefine productivity software for users worldwide."
+  },
+  {
+    "id": 19,
+    "companyName": "Spline studio",
+    "jobTitle": "Data Scientist",
+    "companyLogo": "/images/Spline.png",
+    "minPrice": "40",
+    "maxPrice": "50",
+    "salaryType": "Yearly",
+    "jobLocation": "Bengaluru",
+    "postingDate": "2023-10-28",
+    "experienceLevel": "Any experience",
+    "employmentType": "Full-time", 
+    "description": "Spline Analytics is seeking a Data Scientist to join our team. As a Data Scientist, you will analyze complex datasets and provide valuable insights to drive business decisions",
+    "aboutCompany": "Spline Analytics is a leading data analytics company that specializes in turning complex data into actionable insights. With a strong emphasis on innovation and precision, Spline Analytics helps businesses make informed decisions based on data-driven strategies. The company's work culture promotes continuous learning, collaboration, and professional growth. Joining Spline Analytics means being part of a talented team that is passionate about harnessing the power of data to drive business success and transformation."
+  },
+  {
+    "id": 20,
+    "companyName": "Raycast corp",
+    "jobTitle": "UI/UX Designer",
+    "companyLogo": "/images/Raycast.png",
+    "minPrice": "40",
+    "maxPrice": "50",
+    "salaryType": "Monthly",
+    "jobLocation": "Mumbai",
+    "postingDate": "2023-10-05",
+    "experienceLevel": "Work remotely",
+    "employmentType": "Part-time",
+    "description": "Raycast Technologies is hiring a UI/UX Designer to join our creative team. As a UI/UX Designer, you will be responsible for creating intuitive and visually appealing user interfaces.",
+    "aboutCompany": "Raycast Technologies is a forward-thinking company specializing in developing tools that enhance productivity and streamline workflows. The company is known for its innovative solutions that simplify complex tasks and improve user experiences. Raycast Technologies fosters a culture of creativity, collaboration, and continuous improvement, providing employees with opportunities to work on impactful projects. As part of Raycast, you'll join a team dedicated to pushing the boundaries of technology and design to create intuitive and effective solutions."
+  },
+  {
+    "id": 21,
+    "companyName": "Loom",
+    "jobTitle": "Frontend Developer",
+    "companyLogo": "/images/Loom.png",
+    "minPrice": "50",
+    "maxPrice": "75",
+    "salaryType": "Yearly",
+    "jobLocation": "Mumbai",
+    "postingDate": "2023-10-28",
+    "experienceLevel": "Intership",
+    "employmentType": "Full-time",
+    "description": "Loom Technologies is seeking a Frontend Developer to join our team. As a Frontend Developer, you will be responsible for developing and maintaining frontend applications.",
+    "aboutCompany": "Loom Technologies is an innovative company that focuses on developing cutting-edge software solutions designed to enhance productivity and communication. Known for its user-friendly tools and collaborative platforms, Loom empowers teams to work more efficiently and effectively. The company values innovation, teamwork, and continuous improvement, providing a dynamic work environment where employees can thrive and grow. Joining Loom means being part of a forward-thinking team committed to delivering high-quality products that make a real difference."
+  },
+  {
+    "id": 22,
+    "companyName": "Trainline group",
+    "jobTitle": "DevOps Engineer",
+    "companyLogo": "/images/Trainline.png",
+    "minPrice": "80",
+    "maxPrice": "120",
+    "salaryType": "Yearly",
+    "jobLocation": "Mumbai",
+    "postingDate": "2023-10-05",
+    "experienceLevel": "Intership",
+    "employmentType": "Temporary",
+    "description": "Trainline Solutions is hiring a DevOps Engineer to join our team. As a DevOps Engineer, you will be responsible for implementing and managing continuous integration and deployment pipelines.",
+    "aboutCompany": "Trainline Solutions is a leading provider of technology solutions for the travel industry. Specializing in ticketing and journey planning, Trainline offers a seamless and efficient experience for travelers and operators alike. The company's culture is built on innovation, collaboration, and a commitment to excellence. Employees at Trainline are encouraged to push the boundaries of technology to create solutions that improve the travel experience. Joining Trainline means being part of a team that is dedicated to making travel simpler, smarter, and more convenient."
+  },
+  {
+    "id": 23,
     "companyName": "WhatsApp",
     "jobTitle": "Senior Software Engineer",
     "companyLogo": "/images/whatsapp.png",
@@ -265,10 +191,11 @@
     "postingDate": "2023-12-10",
     "experienceLevel": "Senior",
     "employmentType": "Full-time",
-    "description": "WhatsApp is looking for a Senior Software Engineer to join our team and work on exciting projects!"
+    "description": "WhatsApp is looking for a Senior Software Engineer to join our team and work on exciting projects!",
+    "aboutCompany": "WhatsApp, a subsidiary of Meta Platforms, is one of the world's most popular messaging applications, connecting billions of users through instant messaging, voice, and video calls. The platform is known for its simplicity, security, and reliability. WhatsApp's work culture emphasizes innovation, user privacy, and seamless communication. As part of WhatsApp, you'll work with cutting-edge technology and a talented team dedicated to improving how people connect and communicate across the globe."
   },
   {
-    "id": 8,
+    "id": 24,
     "companyName": "Twitter",
     "jobTitle": "Product Manager",
     "companyLogo": "/images/twitter.png",
@@ -279,10 +206,11 @@
     "postingDate": "2023-11-25",
     "experienceLevel": "Hyderabad",
     "employmentType": "Full-time",
-    "description": "Twitter is hiring a Product Manager to lead the development of new features and improvements."
+    "description": "Twitter is hiring a Product Manager to lead the development of new features and improvements.",
+    "aboutCompany": "Twitter is a global social media platform that allows users to share and discover real-time information and engage in conversations. Known for its unique format and powerful influence, Twitter connects millions of people worldwide. The company fosters a culture of openness, inclusivity, and rapid innovation. At Twitter, you'll have the opportunity to work on impactful projects, collaborate with talented individuals, and shape the future of social media communication."
   },
   {
-    "id": 9,
+    "id": 25,
     "companyName": "Facebook",
     "jobTitle": "Data Analyst",
     "companyLogo": "/images/facebook.png",
@@ -293,10 +221,11 @@
     "postingDate": "2023-11-20",
     "experienceLevel": "Entry-level",
     "employmentType": "Full-time",
-    "description": "Join Facebook as a Data Analyst and help us analyze and interpret data to drive business decisions."
+    "description": "Join Facebook as a Data Analyst and help us analyze and interpret data to drive business decisions.",
+    "aboutCompany": "Facebook, now a part of Meta Platforms, is a leading social media company that connects people and communities worldwide. With its suite of apps and services, including Facebook, Instagram, and WhatsApp, Meta fosters connections, fosters creativity, and empowers businesses. The company's culture prioritizes innovation, collaboration, and making a positive impact on society. Working at Facebook means being part of a global team dedicated to building technologies that bring people closer together and drive meaningful interactions."
   },
   {
-    "id": 10,
+    "id": 26,
     "companyName": "Google",
     "jobTitle": "Software Engineer",
     "companyLogo": "/images/google.png",
@@ -307,6 +236,7 @@
     "postingDate": "2023-11-15",
     "experienceLevel": "Experienced",
     "employmentType": "Full-time",
-    "description": "Google is seeking experienced Software Engineers to join our dynamic team and work on innovative projects."
+    "description": "Google is seeking experienced Software Engineers to join our dynamic team and work on innovative projects.",
+    "aboutCompany": "Google is a global technology leader known for its innovative products and services that improve the lives of billions of users worldwide. The company’s mission is to organize the world’s information and make it universally accessible and useful. Google fosters a culture of collaboration, innovation, and inclusivity, providing employees with opportunities to work on groundbreaking projects. As part of Google, you'll be part of a diverse and dynamic team committed to solving complex problems and pushing the boundaries of technology."
   }
 ]

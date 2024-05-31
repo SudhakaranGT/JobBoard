@@ -1,21 +1,46 @@
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaUser,
+  FaSearchDollar,
+  FaPlus,
+  FaHome,
+} from "react-icons/fa";
 import { FiInstagram } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { RiInboxArchiveFill } from "react-icons/ri";
 import TextInput from "./TextInput";
 import CustomButton from "./CustomButton";
-import { FaSearchDollar, FaPlus, FaHome } from "react-icons/fa";
-import { RiInboxArchiveFill } from "react-icons/ri";
 
-const Footer = () => {
+const Footer = ({ user }) => {
   const navItems = [
-    { path: "/", title: "Home", icon: <FaHome /> },
-    { path: "/search-jobs", title: "Search", icon: <FaSearchDollar /> },
-    { path: "/my-jobs", title: "Posted Jobs", icon: <RiInboxArchiveFill /> },
-    { path: "/post-a-job", title: "Post a Job", icon: <FaPlus /> },
+    { path: "/", title: "Home", icon: <FaHome />, role: "both" },
+    {
+      path: "/search-jobs",
+      title: "Search",
+      icon: <FaSearchDollar />,
+      role: "seeker",
+    },
+    { path: "/about", title: "About", icon: <FaHome />, role: "both" },
+    {
+      path: "/post-a-job",
+      title: "Post a Job",
+      icon: <FaPlus />,
+      role: "recruiter",
+    },
+    {
+      path: "/my-jobs",
+      title: "Posted Jobs",
+      icon: <RiInboxArchiveFill />,
+      role: "recruiter",
+    },
+    { path: "/profile", title: "Profile", icon: <FaUser />, role: "both" },
   ];
 
   return (
-    <footer className="text-white mp-20 mt-10">
+    <footer className="text-white mt-20">
       <div className="overflow-x-hidden -mb-0.5">
         <svg
           preserveAspectRatio="none"
@@ -36,26 +61,33 @@ const Footer = () => {
         <div className="w-full lg:w-11/12 mx-auto lg:flex justify-between items-center">
           <div className="lg:w-1/2">
             <h1 className="text-2xl font-bold mb-4">
-              Important 
+              Important
               <span className="text-[#001a36] text-3xl font-bold"> Links</span>
             </h1>
             <div className="flex flex-col gap-4">
-              {navItems.map((item, index) => (
-                <Link
-                  key={index}
-                  to={item.path}
-                  className="text-white hover:text-gray-300 flex items-center"
-                >
-                  {item.icon}
-                  <span className="ml-2">{item.title}</span>
-                </Link>
-              ))}
+              {navItems.map(
+                ({ path, title, role, icon }) =>
+                  (role === "both" || role === user?.type) && (
+                    <Link
+                      key={path}
+                      to={path}
+                      className="text-white hover:text-gray-300 flex items-center"
+                    >
+                      {icon}
+                      <span className="ml-2">{title}</span>
+                    </Link>
+                  )
+              )}
             </div>
           </div>
 
           <div className="lg:w-1/2 mt-6 lg:mt-0">
             <h1 className="text-2xl font-bold mb-4">
-              Subscribe to our <span className="text-[#001a36] text-4xl font-bold"> Newsletter</span>
+              Subscribe to our{" "}
+              <span className="text-[#001a36] text-4xl font-bold">
+                {" "}
+                Newsletter
+              </span>
             </h1>
             <div className="flex flex-col lg:flex-row gap-4">
               <div className="flex-grow">

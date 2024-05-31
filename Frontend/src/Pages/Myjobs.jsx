@@ -33,16 +33,28 @@ const Myjobs = ({ email }) => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3000/job/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.acknowledged === true) {
-          Swal.fire("Success", "Job deleted Successfully!", "success");
-          setJobs(jobs.filter((job) => job._id !== id));
-        }
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you really want to delete this job?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/job/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.acknowledged === true) {
+              Swal.fire("Deleted!", "Job deleted successfully!", "success");
+              setJobs(jobs.filter((job) => job._id !== id));
+            }
+          });
+      }
+    });
   };
 
   // Pagination Logic

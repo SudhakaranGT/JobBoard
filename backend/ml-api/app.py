@@ -1,11 +1,11 @@
-from flask import Flask, request, jsonify # type: ignore
-import PyPDF2 # type: ignore
-import joblib # type: ignore
+from flask import Flask, request, jsonify
+import PyPDF2
+import joblib
 import re
+import os
 
 app = Flask(__name__)
 
-# Load models and other necessary objects
 model_1 = joblib.load('resumeClassify_model_1.pkl')
 model_2 = joblib.load('resumeClassify_model_2.pkl')
 word_vectorizer = joblib.load('word_vectorizer.pkl')
@@ -26,7 +26,9 @@ def extract_text_from_pdf(pdf_path):
     with open(pdf_path, "rb") as file:
         pdf_reader = PyPDF2.PdfReader(file)
         for page in pdf_reader.pages:
-            text += page.extract_text()
+            page_text = page.extract_text()
+            if page_text:
+                text += page_text
     return text
 
 @app.route('/predict-job', methods=['POST'])
@@ -35,10 +37,20 @@ def predict_job():
         return jsonify({'error': 'No file provided'}), 400
 
     file = request.files['resume']
-    file_path = f"uploads/{file.filename}"
+    if not file.filename.endswith('.pdf'):
+        return jsonify({'error': 'Invalid file format. Please upload a PDF file.'}), 400
+
+    uploads_dir = 'uploads'
+    os.makedirs(uploads_dir, exist_ok=True)
+    file_path = os.path.join(uploads_dir, file.filename)
     file.save(file_path)
 
+    print(f"Saved file to {file_path}")  # Debug information
+
     resume_text = extract_text_from_pdf(file_path)
+    if not resume_text:
+        return jsonify({'error': 'Failed to extract text from the PDF file.'}), 400
+
     cleaned_resume = cleanResume(resume_text)
     vectorized_resume = word_vectorizer.transform([cleaned_resume])
 
