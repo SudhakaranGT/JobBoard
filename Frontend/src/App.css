@@ -35,8 +35,10 @@ li {
 .card {
   margin: 20px;
   border: 2px solid #ededed;
-  padding: 20px;
+  padding: 15px;
   cursor: pointer;
+  overflow:hidden;
+  max-height: 15rem;
 }
 
 

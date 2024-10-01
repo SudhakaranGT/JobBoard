@@ -66,9 +66,6 @@ const CompanyLogin = ({ handleLogin }) => {
           transition={{ duration: 0.5 }}
           className="w-full h-screen sm:w-1/2 flex flex-col justify-center items-center p-20 gap-10"
         >
-          <a className="flex justify-center items-center" href="">
-            Logo
-          </a>
           <div className="flex justify-center items-center">
             <h1 className="text-3xl font-bold">
               Welcome <span className="text-blue">Recruiter!</span>

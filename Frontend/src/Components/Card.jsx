@@ -19,7 +19,7 @@ const Card = ({ data }) => {
   } = data;
 
   return (
-    <section className="card bg-gray-100">
+    <section className="card bg-gray-100 ">
       <Link
         to={`/job/${_id}`}
         className="flex gap-4 flex-col sm:flex-row items-start"

@@ -87,47 +87,63 @@ async function connectToMongoDB() {
     //     res.status(500).json({ message: 'Server error', error });
     //   }
     // });
+    
+    async function getRequiredSkills(jobId) {
+      const job = await allJobs.findOne({ _id: new ObjectId(jobId) });
+      // console.log(job.skills)
+      return job ? job.skills : []; 
+    }
 
     app.post('/upload-resume', upload.single('resume'), async (req, res) => {
       const { username, email, jobId } = req.body;
       const resumePath = req.file.path;
-    
+  
       try {
-        const formData = new FormData();
-        formData.append('resume', fs.createReadStream(resumePath));
-    
-        const response = await axios.post('http://localhost:5000/predict-job', formData, {
-          headers: {
-            ...formData.getHeaders()
+          const requiredSkills = await getRequiredSkills(jobId);
+          if (!requiredSkills.length) {
+              return res.status(404).json({ message: 'Required skills not found for the specified job ID', status: false });
           }
-        });
-    
-        const { predicted_category_1, predicted_category_2 } = response.data;
-        const preferredJob = `${predicted_category_1}, ${predicted_category_2}`;
-    
-        const newApplicant = {
-          username,
-          email,
-          preferredJob,
-          rank: Math.floor(Math.random() * 21) + 80, // Generate a random rank between 80 and 100
-          resume: resumePath,
-          jobId: new ObjectId(jobId),
-          appliedAt: new Date()
-        };
-    
-        const result = await allApplicants.insertOne(newApplicant);
-    
-        if (result.insertedId) {
-          res.status(200).json({ message: 'Resume uploaded, job predicted and application saved', status: true });
-        } else {
-          res.status(500).json({ message: "Failed to save application, try again later", status: false });
-        }
+  
+          const formData = new FormData();
+          formData.append('resume', fs.createReadStream(resumePath));
+  
+          // Append each required skill's value to FormData
+          requiredSkills.forEach(skill => {
+              formData.append('required_skills', String(skill.value)); // Extract value
+          });
+  
+          const response = await axios.post('http://localhost:5000/predict', formData, {
+              headers: {
+                  ...formData.getHeaders()
+              }
+          });
+  
+          const { predicted_category_1, predicted_category_2, score_percentage, matching_skills } = response.data;
+          const preferredJob = `${predicted_category_1}, ${predicted_category_2}`;
+  
+          const newApplicant = {
+              username,
+              email,
+              preferredJob,
+              rank: score_percentage,
+              resume: resumePath,
+              jobId: new ObjectId(jobId),
+              appliedAt: new Date()
+          };
+  
+          const result = await allApplicants.insertOne(newApplicant);
+  
+          if (result.insertedId) {
+              res.status(200).json({ message: 'Resume uploaded, job predicted and application saved', status: true });
+          } else {
+              res.status(500).json({ message: "Failed to save application, try again later", status: false });
+          }
       } catch (error) {
-        console.error('Error predicting job category:', error);
-        res.status(500).json({ success: false, error: error.message });
+          console.error('Error predicting job category:', error);
+          res.status(500).json({ success: false, error: error.message });
       }
     });
-    
+  
 
     app.get("/all-jobs", async (req, res) => {
       const jobs = await allJobs.find({}).toArray()

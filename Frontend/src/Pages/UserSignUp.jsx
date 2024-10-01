@@ -24,29 +24,35 @@ const UserSignUp = ({ handleLogin }) => {
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const onSubmit = (data) => {
-    fetch("http://localhost:3000/post-signup1", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(res);
-        if (result.acknowledged === true) {
-          Swal.fire("Success", "Signed Up Successfully!", "success");
-          reset();
-          navigate("/user-login");
-        } else {
-          Swal.fire("Error", "There is a problem with the inputs", "error");
-        }
-      })
-      .catch((error) => {
-        Swal.fire("Error", "An error occurred. Please try again.", "error");
+  const onSubmit = async (data) => {
+    try {
+      console.log("Hello",data)
+      const response = await fetch("http://localhost:3000/post-signup1", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
+  
+      const result = await response.json();
+      console.log(result);
+  
+      if (result.acknowledged === true) {
+        Swal.fire("Success", "Signed Up Successfully!", "success");
+        reset();
+        
+        await handleLogin(result.user);
+        
+        navigate("/");
+      } else {
+        Swal.fire("Error", "There is a problem with the inputs", "error");
+      }
+    } catch (error) {
+      Swal.fire("Error", "An error occurred. Please try again.", "error");
+    }
   };
+  
 
   return (
     <div className="max-w-screen-3xl mx-auto px-4 py-8 rounded-3xl bg-gray-200 shadow-xl">
@@ -168,7 +174,7 @@ const UserSignUp = ({ handleLogin }) => {
             </div>
             <input
               type="submit"
-              value="Sign Up"
+              value="SignUp"
               className="block mt-10 bg-blue text-white font-semibold px-8 py-2 rounded-lg cursor-pointer hover:scale-105 w-full"
             />
           </form>
@@ -191,7 +197,7 @@ const UserSignUp = ({ handleLogin }) => {
           </div>
           <div className="flex gap-1  lg:flex-row flex-col flex-start mt-5 justify-center items-center">
             <h1 className="text-lg font-bold">Already have an account?</h1>
-            <Link to={"/login"} className="text-blue underline" href="#">
+            <Link to={"/user-login"} className="text-blue underline" href="#">
               Log In
             </Link>
           </div>

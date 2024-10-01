@@ -23,28 +23,37 @@ const CompanySignUp = ({ handleLogin }) => {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    fetch("http://localhost:3000/post-signup2", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        if (result.acknowledged === true) {
-          Swal.fire("Success", "Signed Up Successfull..!", "success");
-          reset();
-          navigate("/company-login");
-        } else {
-          Swal.fire("Error", "There is a problem  with the inputs", "error");
-        }
-        reset();
+  const onSubmit = async (data) => {
+    try {
+
+      console.log("Hello",data)
+      const response = await fetch("http://localhost:3000/post-signup2", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
+  
+      const result = await response.json();
+      console.log(result);
+  
+      if (result.acknowledged === true) {
+        Swal.fire("Success", "Signed Up Successfully!", "success");
+        reset();
+        
+        // Await handleLogin
+        await handleLogin(result.user);
+        
+        navigate("/");
+      } else {
+        Swal.fire("Error", "There is a problem with the inputs", "error");
+      }
+    } catch (error) {
+      Swal.fire("Error", "An error occurred. Please try again.", "error");
+    }
   };
+  
 
   return (
     <div className="max-w-screen-3xl mx-auto px-4 py-8 rounded-3xl bg-gray-200 shadow-xl">
@@ -55,9 +64,6 @@ const CompanySignUp = ({ handleLogin }) => {
           transition={{ duration: 0.5 }}
           className="w-full h-screen sm:w-1/2 flex flex-col justify-center items-center p-20 gap-5"
         >
-          <a className="flex justify-center items-center" href="#">
-            Logo
-          </a>
           <div className="flex justify-center items-center">
             <h1 className="text-2xl font-bold">
               Welcome <span className="text-blue">New Recruiter!</span>

@@ -24,7 +24,7 @@ const UserLogin = ({ handleLogin }) => {
 
   const onSubmit = (data) => {
     const query = new URLSearchParams({ ...data }).toString();
-    console.log(query);
+    // console.log(query);
     fetch(`http://localhost:3000/user-login?${query}`, {
       method: "GET",
     })
@@ -122,7 +122,7 @@ const UserLogin = ({ handleLogin }) => {
             </div>
             <input
               type="submit"
-              value="Login"
+              value="Log in"
               className="block mt-12 bg-blue text-white font-semibold px-8 py-2 rounded-lg cursor-pointer hover:scale-105 w-full"
             />
           </form>

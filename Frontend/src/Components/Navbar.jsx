@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
 import { FaSearchDollar, FaPlus, FaHome, FaUser } from "react-icons/fa";
 import { RiInboxArchiveFill } from "react-icons/ri";
@@ -9,10 +9,16 @@ import OutsideClickHandler from "react-outside-click-handler";
 
 const Navbar = ({ user, handleLogout }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleMenuOpen = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const handleClick=async()=>{
+    await handleLogout();
+    navigate("/");
+ }
 
   const navItems = [
     { path: "/", title: "Home", icon: <FaHome />, role: "both" },
@@ -72,7 +78,7 @@ const Navbar = ({ user, handleLogout }) => {
                 <FaUser className="w-6 h-6 mr-2" />
               </NavLink>
               <button
-                onClick={handleLogout}
+                onClick={handleClick}
                 className="bg-blue py-2 px-8 text-white md:rounded-s-none rounded hover:bg-blue-700 transition-all duration-200 transform hover:scale-125"
                 style={{
                   boxShadow: "8px 8px 16px #d9d9d9, -8px -8px 16px #ffffff",

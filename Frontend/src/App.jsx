@@ -40,29 +40,38 @@ const App = () => {
   }, []);
 
   const handleLogin = (user) => {
-    setUser(user);
-    localStorage.setItem("user", JSON.stringify(user));
+    try {
+      setUser(user);
+      localStorage.setItem("user", JSON.stringify(user));
+    } catch (error) {
+      console.error("Failed to save user data:", error);
+    }
   };
 
   const handleLogout = () => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "Do you really want to log out?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, log out!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        setUser(null);
-        localStorage.removeItem("user");
-        Swal.fire(
-          "Logged out!",
-          "You have been logged out successfully.",
-          "success"
-        );
-      }
+    return new Promise((resolve, reject) => {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "Do you really want to log out?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, log out!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          setUser(null);
+          localStorage.removeItem("user");
+          Swal.fire(
+            "Logged out!",
+            "You have been logged out successfully.",
+            "success"
+          );
+          resolve(true); 
+        } else {
+          reject(false); 
+        }
+      });
     });
   };
 
